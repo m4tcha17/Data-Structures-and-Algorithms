@@ -49,7 +49,7 @@ void Insert(maxHeap* H, int elem){
         while(child != 0 && H->elem[parent] < elem){
             H->elem[child] = H->elem[parent];
             child = parent;
-            parent = (child - 1) / 2;
+            parent = (child - 1) / 2;   
         }
         H->elem[child] = elem;
     }

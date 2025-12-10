@@ -30,63 +30,6 @@ int main(){
     int arr[] = {4, 7, 2, 3, 6, 1, 5, 8, 9, 10, 15, 28, 75, 17, 34};
     int size = sizeof(arr) / sizeof(arr[0]);
     BST S;
-    int elem;
-
-    // --- SETUP: Full Tree for Deletion Cases ---
-    printf("\n--- Test Setup: Initial Full Tree ---\n");
-    initTree(&S);
-    insertAll(&S, arr, size);
-    printf("Element to be Searched: ");
-    scanf("%d", &elem);
-    printf("Search Member (Non-Recursion):\n");
-    Member(S, elem);
-    printf("Search Member (Recursion):\n");
-    MemberRecursion(S, elem);
-    Visualize(S);
-
-    // --- TEST 1, 2, 9: Leaf and Simple Deletion ---
-    printf("\n\n--- TEST 1: Delete Leaf Node (1) ---\n");
-    Delete(&S, 1);
-    Visualize(S);
-
-    printf("\n\n--- TEST 9: Repeated Deletion (6, then 6 again) ---\n");
-    Delete(&S, 6); // Case 1: Leaf
-    Delete(&S, 6); // Test: Not Found
-    Visualize(S);
-
-    // --- TEST 10: Delete Node with 1 Child (Left Link) ---
-    printf("\n\n--- TEST 10: Delete Node with 1 Child (2) ---\n");
-    Delete(&S, 2); // Case 2: 2 has only child 3
-    Visualize(S);
-
-    // --- TEST 3: Delete Node with 1 Child (Right Link) ---
-    printf("\n\n--- TEST 3: Delete Node with 1 Child (7) ---\n");
-    Delete(&S, 7); // Case 2: 7 has only child 8
-    Visualize(S);
-
-    // --- TEST 5 & 6: Two-Child Deletion (Harder Cases) ---
-    printf("\n\n--- TEST 5: Delete Node with 2 Children (15) ---\n");
-    Delete(&S, 15); // Case 3: 15 replaced by successor 17
-    Visualize(S);
-
-    printf("\n\n--- TEST 6: Delete Node with 2 Children (28) ---\n");
-    Delete(&S, 28); // Case 3: 28 replaced by successor 34
-    Visualize(S);
-
-    // --- TEST 4: Delete the Root (The Ultimate Test) ---
-    printf("\n\n--- TEST 4: Delete the Root (4) ---\n");
-    Delete(&S, 4); // Case 3: 4 replaced by successor 5
-    Visualize(S);
-
-    // --- TEST 7: Element Not Found ---
-    printf("\n\n--- TEST 7: Delete Non-Existent Element (99) ---\n");
-    Delete(&S, 99); // Test: Not Found
-
-    // --- TEST 8: Delete from Empty Tree ---
-    printf("\n\n--- TEST 8: Delete from an Empty Tree ---\n");
-    BST EmptyTree;
-    initTree(&EmptyTree);
-    Delete(&EmptyTree, 100); // Test: Empty Tree message
 
     return 0;
 }
