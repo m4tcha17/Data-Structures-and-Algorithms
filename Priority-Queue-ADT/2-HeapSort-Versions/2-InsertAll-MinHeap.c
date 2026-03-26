@@ -49,7 +49,7 @@ void insertMinHeap(minHeap* H, int elem){
     if(H->count - 1 < SIZE){
         int child = H->count++;
         int parent = (child - 1) / 2;
-
+ 
         while(child != 0 && H->elem[parent] > elem){
             H->elem[child] = H->elem[parent];
             child = parent;
