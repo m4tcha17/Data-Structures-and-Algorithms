@@ -150,6 +150,13 @@ void Delete(BST *T, int elem){
             }
             // Runs Regardless of the Test Cases
             temp = *trav;
+            /*--------------------------------------------------------------------------------------------------------/
+            /  How the Ternary Handles All Cases:                                                                     /
+            /    1. Leaf Node: LC is NULL, so returns RC which is also NULL. Parent now points to NULL.               /
+            /    2. One Child (Left): LC is not NULL, so returns LC. Parent now points to the left child.             /
+            /    3. One Child (Right): LC is NULL, so returns RC. Parent now points to the right child.               /
+            /    4. Successor/Predecessor: Always has at most one child, so falls into Case 2 or 3 above.             /
+            /--------------------------------------------------------------------------------------------------------*/
             *trav = ((*trav)->LC == NULL) ? (*trav)->RC : (*trav)->LC;
             free(temp);
             printf("Element %d Deleted...\n", elem);
